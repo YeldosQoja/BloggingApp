@@ -1,0 +1,14 @@
+section {
+  margin-top: 20vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  align-items: stretch;
+}
+
+div {
+  margin-bottom: 12px;
+}
