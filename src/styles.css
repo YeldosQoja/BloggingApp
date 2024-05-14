@@ -1,1 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #6528f7;
+  --background: #f9f9f9;
+  --text: #222222;
+  --gray: #686d76;
+  --lightGray: #e8e8e8;
+  --text-font-size: 16px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 18px;
+}
+
+* {
+  font-family: "Poppins", Verdana, sans-serif;
+  color: var(--text);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-block: 0.2rem;
+}
+
+p {
+  font-size: var(--text-font-size);
+}
+
+label {
+  display: block;
+  font-size: 16px;
+}
+
+input {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-color: var(--gray);
+  border-radius: var(--border-radius-md);
+}
+
+button {
+  border-radius: var(--border-radius-md);
+  border-width: 0;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 12px;
+  font-size: 20px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 12px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
