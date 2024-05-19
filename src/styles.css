@@ -14,11 +14,8 @@
 * {
   font-family: "Poppins", Verdana, sans-serif;
   color: var(--text);
+  text-decoration: none;
   box-sizing: border-box;
-}
-
-body {
-  margin: 0 auto;
 }
 
 h1 {
@@ -51,7 +48,6 @@ button {
 
 .container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
 
@@ -67,5 +63,5 @@ button {
   padding: 12px;
 }
 
-html, body { height: 100%; }
+html, body { height: 100%; font-size: var(--text-font-size); }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

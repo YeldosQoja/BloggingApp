@@ -1,0 +1,42 @@
+nav {
+  background-color: var(--primary-color);
+  padding: 12px 16px;
+}
+
+nav .top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 24px;
+}
+
+li a {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.logo a {
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+nav .nav-btn {
+  border: solid 1.5px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 4px 8px;
+}
