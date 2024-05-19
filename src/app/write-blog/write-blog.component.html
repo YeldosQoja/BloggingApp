@@ -1,0 +1,20 @@
+<div>
+  <form [formGroup]="blogForm" (ngSubmit)="onPublish()">
+    <div class="input-wrapper">
+      <label for="title">Title</label>
+      <input class="title-input" type="text" formControlName="title" />
+    </div>
+    <div class="input-wrapper">
+      <label for="content">Content</label>
+      <textarea
+        type="text"
+        formControlName="content"
+      ></textarea>
+    </div>
+    <div class="input-wrapper">
+      <label for="tagline">Keywords</label>
+      <input class="tagline-input" type="text" formControlName="tagline" />
+    </div>
+    <button class="btn" type="submit" [disabled]="!blogForm.valid">Publish</button>
+  </form>
+</div>
