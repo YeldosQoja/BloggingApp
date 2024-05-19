@@ -1,0 +1,8 @@
+<div class="home-wrapper">
+  <div class="blog-list">
+    <app-blog-list-item
+      *ngFor="let blog of blogs$ | async"
+      [blog]="blog"
+    ></app-blog-list-item>
+  </div>
+</div>

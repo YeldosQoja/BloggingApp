@@ -1,11 +1,11 @@
 <section>
   <h1>Welcome</h1>
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <div class="input">
+    <div>
       <label for="username">Username</label>
       <input class="auth-input" formControlName="username" type="text">
     </div>
-    <div class="input">
+    <div>
       <label for="password">Password</label>
       <input class="auth-input" formControlName="password" type="password">
     </div>

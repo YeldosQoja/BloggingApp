@@ -1,0 +1,16 @@
+<div class="blog-list-item" [routerLink]="['/blogs', blog.id]">
+  <h2 class="title">{{ blog.title }}</h2>
+  <p class="blog-content">{{ blog.content }}</p>
+  <div class="action-container">
+    <a class="icon-btn" aria-label="Like a post" (click)="onLike($event)">
+      <i
+        class="fa-regular fa-heart fa-lg"
+        [ngClass]="isLiked ? 'fa-solid' : 'fa-regular'"
+        style="color: red"
+      ></i>
+    </a>
+    <p>{{ likeCount }}</p>
+    <div style="flex: 1"></div>
+    <p>{{ blog.created_at | date }}</p>
+  </div>
+</div>

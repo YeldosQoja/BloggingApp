@@ -5,7 +5,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
@@ -24,7 +24,7 @@ export class RegisterComponent {
   ) {}
 
   onRegister() {
-    this.httpClient.post("http://localhost:8000/api/user/register/", this.registerForm.value).subscribe({
+    this.httpClient.post("user/register/", this.registerForm.value).subscribe({
       next: (res) => {
         console.log(res);
       },

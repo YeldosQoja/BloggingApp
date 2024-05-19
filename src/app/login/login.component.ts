@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -24,7 +24,7 @@ export class LoginComponent {
 
   onLogin(): void {
     this.httpClient
-      .post<{ access: string; refresh: string }>('http://localhost:8000/api/token/', this.loginForm.value)
+      .post<{ access: string; refresh: string }>('token/', this.loginForm.value)
       .subscribe({
         next: (res) => {
           console.log(res);
