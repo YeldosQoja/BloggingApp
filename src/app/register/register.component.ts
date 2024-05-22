@@ -1,6 +1,17 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, DestroyRef, inject } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { User } from '../user';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+type RegisterFormGroup = {
+  [Property in keyof User]: FormControl<User[Property]>;
+};
 
 @Component({
   selector: 'app-register',
@@ -10,27 +21,41 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
-  registerForm = this.formBuilder.group({
-    firstName: [''],
-    lastName: [''],
-    username: ['', Validators.required],
-    email: ['', Validators.email],
-    password: ['', Validators.required],
+  registerForm = new FormGroup<RegisterFormGroup>({
+    firstName: new FormControl('', {
+      nonNullable: true,
+    }),
+    lastName: new FormControl('', {
+      nonNullable: true,
+    }),
+    username: new FormControl('', {
+      validators: [Validators.required],
+      nonNullable: true,
+    }),
+    email: new FormControl('', {
+      validators: [Validators.email],
+      nonNullable: true,
+    }),
+    password: new FormControl('', {
+      validators: [Validators.required],
+      nonNullable: true,
+    }),
   });
+  destroyRef = inject(DestroyRef);
 
-  constructor(
-    readonly formBuilder: FormBuilder,
-    readonly httpClient: HttpClient
-  ) {}
+  constructor(private authService: AuthService) {}
 
   onRegister() {
-    this.httpClient.post("user/register/", this.registerForm.value).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
+    this.authService
+      .register(this.registerForm.value as User)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 }
