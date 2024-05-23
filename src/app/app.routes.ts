@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { WriteBlogComponent } from './write-blog/write-blog.component';
+import { ProfileBlogsComponent } from './profile-blogs/profile-blogs.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -12,4 +13,5 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'write/blogs', component: WriteBlogComponent },
   { path: 'blogs/:blogId', component: BlogDetailComponent },
+  { path: 'profile/blogs', component: ProfileBlogsComponent },
 ];

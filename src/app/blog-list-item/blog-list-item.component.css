@@ -17,6 +17,7 @@ p {
 }
 
 .blog-list-item {
+  width: 30vw;
   background-color: var(--background);
   border-radius: var(--border-radius-sm);
   padding: 12px;
