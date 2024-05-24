@@ -6,11 +6,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { User } from '../user';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RegisterForm } from '../register-form';
 
 type RegisterFormGroup = {
-  [Property in keyof User]: FormControl<User[Property]>;
+  [Property in keyof RegisterForm]: FormControl<RegisterForm[Property]>;
 };
 
 @Component({
@@ -47,7 +47,7 @@ export class RegisterComponent {
 
   onRegister() {
     this.authService
-      .register(this.registerForm.value as User)
+      .register(this.registerForm.value as RegisterForm)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (res) => {

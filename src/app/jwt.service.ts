@@ -19,7 +19,7 @@ export class JwtService {
   refreshToken(): Observable<string> {
     const token = this.getRefreshToken();
     return this.http
-      .get<{ access: string }>('token/refresh', { params: { refresh: token } })
+      .post<{ access: string }>('token/refresh/', { refresh: token })
       .pipe(
         map(({ access }) => access),
         tap(this.saveAccessToken)

@@ -46,7 +46,11 @@ export class LoginComponent {
       .login(this.loginForm.value as { username: string; password: string })
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
-        next: () => void this.router.navigate(['/home']),
+        next: (res) => {
+          console.log(res);
+
+          this.router.navigate(['/home']);
+        },
       });
   }
 }
